@@ -1,0 +1,38 @@
+﻿@model CateringLarissa2.Models.Menu
+
+@{
+    ViewData["Title"] = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<br/>
+<div>
+    <a asp-action="Index">
+        <button class="btn btn-secondary active" type="submit" >Back to list</i></button>
+    </a>
+</div>
+<br/>
+
+<h1>Delete menu</h1>
+
+<h3>Are you sure you want to delete this?</h3>
+
+<div class="card mb-3 bg-light">
+    
+    <dl class="card-body row">
+        <dd class = "card-title col-sm-10">
+            Title: @Html.DisplayFor(model => model.title)
+        </dd>
+        <dd class = "card-title col-sm-10">
+            Description: @Html.DisplayFor(model => model.description)
+        </dd>
+        <dd class = "card-title col-sm-10">
+            Price: @Html.DisplayFor(model => model.price)
+        </dd>
+    </dl>
+</div>
+<form asp-action="Delete">
+        <input type="hidden" asp-for="id" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> 
+        
+    </form>

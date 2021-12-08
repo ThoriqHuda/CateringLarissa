@@ -1,0 +1,32 @@
+﻿@model CateringLarissa2.Models.Menu
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Menu Details</h1>
+
+<div class="card mb-3 bg-light">
+    
+    <dl class="card-body row">
+        <dd class = "card-title col-sm-10">
+            Title: @Html.DisplayFor(model => model.title)
+        </dd>
+        <dd class = "card-title col-sm-10">
+            Description: @Html.DisplayFor(model => model.description)
+        </dd>
+        <dd class = "card-title col-sm-10">
+            Price: @Html.DisplayFor(model => model.price)
+        </dd>
+    </dl>
+</div>
+
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.id">
+        <button class="btn btn-info mx-1 active" type="submit" ><i class="fas fa-edit"></i></button>
+    </a> 
+    <a asp-action="Index">
+        <button class="btn btn-secondary active" type="submit" >Back to list</i></button>
+    </a>
+</div>
