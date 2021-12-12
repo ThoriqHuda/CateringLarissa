@@ -167,5 +167,23 @@ body {
         animation-duration: 1s;
         animation-timing-function: ease-in-out;
         animation-iteration-count: 1;
-    }    
+    }
 
+/* Modified Bootstrap */
+
+.h5, h5 {
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+.card {
+    border-radius: .5rem;
+}
+
+.nav-item {
+    margin-right: .5rem;
+}
+
+.text-white {
+    font-weight: 400;
+}
