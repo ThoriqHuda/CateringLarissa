@@ -45,14 +45,11 @@
             <a asp-action="Edit" asp-route-id="@item.id">
                 <button class="btn btn-info mx-1 active" type="submit" ><i class="fas fa-edit"></i></button>
             </a> 
-            <a asp-action="Details" asp-route-id="@item.id">
-                <button class="btn btn-primary mx-1" type="submit" ><i class="fas fa-info-circle"></i></button>
-            </a> 
             <a asp-action="Delete" asp-route-id="@item.id">
                 <button class="btn btn-danger" type="submit"  ><i class="fas fa-trash-alt"></i></button>
             </a>
         }
-        <a asp-action="Pesan" asp-route-id="@item.id">
+        <a asp-action="Details" asp-route-id="@item.id">
             <button class="btn btn-success" type="submit"  ><i class="fas fa-shopping-basket"></i> Pesan</button>
         </a>
       </div>
