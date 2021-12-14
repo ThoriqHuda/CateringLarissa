@@ -14,7 +14,7 @@
 
 @foreach (var item in Model) {
     var var2 = item.user;
-    @if (var2 == username){
+    @if (var2 == username || username=="Admin"){
     <div class="card mb-3 bg-light">
     <div class="card-body">
       <h5 class="card-title">@Html.DisplayFor(modelItem => item.title)</h5>

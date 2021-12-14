@@ -16,10 +16,11 @@ namespace CateringLarissa2.Models
 
             public string username { get; set; }
             public int status { get; set; }
-            
+            public DateTime orderedat { get; set; }
+            public DateTime arrivedat  { get; set; }
             public Pesan()
             {
-
+                this.orderedat = DateTime.Now;
             }
         }
     }

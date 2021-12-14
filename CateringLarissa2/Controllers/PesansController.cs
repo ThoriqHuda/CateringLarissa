@@ -54,7 +54,7 @@ namespace CateringLarissa2.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("id,menuname,alamat,nomorhp,price,username,status")] Pesan pesan)
+        public async Task<IActionResult> Create([Bind("id,menuname,alamat,nomorhp,price,username,status,arrivedat")] Pesan pesan)
         {
             if (ModelState.IsValid)
             {
