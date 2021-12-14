@@ -1,55 +1,65 @@
-﻿@model CateringLarissa2.Models.Menu
+﻿@model CateringLarissa2.Models.Pesan
+
 
 @{
     ViewData["Title"] = "Details";
     Layout = "~/Views/Shared/_Layout.cshtml";
     var usr =  @Context.User.Identity.Name;
+    
 }
 
-<h1 style="margin-bottom: 2rem;">Menu Details</h1>
+<h1 style="margin-bottom: 2rem;">Pemesanan</h1>
 
 <div class="row justify-content-evenly">
     <div class="col-6">
         <div class="card mb-3 bg-light">
             <dl class="card-body row">
-                <img src="~/Images/@Model.menuimage" class="card-img-top" alt="..." style="margin-bottom: 2rem;">
-                <h4>@Html.DisplayFor(model => model.title)</h4>
-                <h5>Rp.@Html.DisplayFor(model => model.price)</h5>
-                <h6 style="margin-top: 1rem;">@Html.DisplayFor(model => model.description)</h6>
+                <img src="~/Images/@ViewBag.menuimage" class="card-img-top" alt="..." style="margin-bottom: 2rem;">
+                <h4>@ViewBag.name</h4>
+                <h5>Rp.@ViewBag.price</h5>
+                <h6 style="margin-top: 1rem;">@ViewBag.description</h6>
             </dl>
         </div>
     </div>
     <div class="col-6" style="padding: 0 5rem;">
         <h2 style="margin-bottom: 1rem;">Form Pemesanan</h2>
-        <div class="mb-3">
-            <label for="exampleFormControlInput1" class="form-label">Menu</label>
-            <input class="form-control" type="text" value="@Html.DisplayFor(model => model.title)" readonly>
+        <form asp-action="Create" asp-controller="Pesans">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label for="exampleFormControlInput1" class="form-label">Menu</label>
+                <input class="form-control" type="text" value="@ViewBag.name" readonly>
+            </div>
+            <div class="form-group">
+                <label asp-for="alamat" class="control-label"></label>
+                <input asp-for="alamat" class="form-control" />
+                <span asp-validation-for="alamat" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="nomorhp" class="control-label">Nomor HP</label>
+                <input asp-for="nomorhp" class="form-control" />
+                <span asp-validation-for="nomorhp" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label for="exampleFormControlInput1" class="form-label">Harga</label>
+                <input class="form-control" type="text" value="@ViewBag.price" readonly>
+            </div>
+            <div class="form-group">
+                <input type="hidden" asp-for="username" value="@Context.User.Identity.Name"/>
+                <input type="hidden" asp-for="menuname" value="@ViewBag.name"/>
+                <input type="hidden" asp-for="price" value="@ViewBag.price"/>
+                <input type="hidden" asp-for="status" value=1/>
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>    
+           
         </div>
-        <div class="mb-3">
-            <label for="exampleFormControlInput1" class="form-label">Harga</label>
-            <input class="form-control" type="text" value="Rp.@Html.DisplayFor(model => model.price)" readonly>
-        </div>
-        <div class="mb-3">
-            <label for="exampleFormControlTextarea1" class="form-label">Alamat</label>
-            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-        </div>
-        <div class="mb-3">
-            <label class="form-label">Nomor HP</label>
-            <input class="form-control" placeholder="081234567890">
-        </div>
-        <a asp-action="Details" asp-route-id="@Model.id">
-            <button class="btn btn-success" type="submit"  ><i class="fas fa-shopping-basket"></i> Pesan</button>
-        </a>
+            
+
     </div>
 </div>
 
 <div>
-    @if (usr == "Admin"){
-        <a asp-action="Edit" asp-route-id="@Model.id">
-            <button class="btn btn-info mx-1 active" type="submit" ><i class="fas fa-edit"></i></button>
-        </a> 
-    }
-    <a asp-action="Index">
+    <a asp-action="Index" asp-controller="Menus">
         <button class="btn btn-secondary active" type="submit" ><i class="fas fa-angle-left"></i> Kembali</i></button>
     </a>
 </div>

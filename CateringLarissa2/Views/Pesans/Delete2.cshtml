@@ -1,0 +1,28 @@
+﻿@model CateringLarissa2.Models.Pesan
+
+@{
+    ViewData["Title"] = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Hapus Pesanan</h1>
+
+<div class="card  bg-light">
+    <div class="card-body">
+      <h5 class="card-title">Title : @Html.DisplayFor(modelItem => Model.menuname)</h5>
+      <h5 class="card-title">Oleh : @Html.DisplayFor(modelItem => Model.username) </h5>
+      <h5 class="card-title">Alamat : @Html.DisplayFor(modelItem => Model.alamat)</h5>
+      <h5 class="card-title">Harga : @Html.DisplayFor(modelItem => Model.price)</h5>
+      <h5 class="card-title">Price : @Html.DisplayFor(modelItem => Model.nomorhp)</h5>
+    </div>
+  </div>
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="id" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> 
+    </form>
+            <a class="nav-link text-dark" asp-controller="Dashboard" asp-action="Pesanan2">
+              <button class="btn btn-primary" type="submit">Kembali</button>
+            </a>
+        
+
+</div>

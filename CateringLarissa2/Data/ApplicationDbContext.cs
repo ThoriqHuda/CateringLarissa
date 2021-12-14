@@ -16,5 +16,6 @@ namespace CateringLarissa2.Data
         }
         public DbSet<CateringLarissa2.Models.Menu> Menu { get; set; }
         public DbSet<CateringLarissa2.Models.Review> Review { get; set; }
+        public DbSet<CateringLarissa2.Models.Pesan> Pesan { get; set; }
     }
 }

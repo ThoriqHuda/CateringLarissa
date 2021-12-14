@@ -46,8 +46,13 @@ namespace CateringLarissa2.Controllers
             {
                 return NotFound();
             }
+            ViewBag.name = menu.title;
+            ViewBag.price = menu.price;
+            ViewBag.description = menu.description;
+            ViewBag.menuimage= menu.menuimage;
+            ViewBag.id = menu.id; 
 
-            return View(menu);
+            return View();
         }
 
         // GET: Menus/Create

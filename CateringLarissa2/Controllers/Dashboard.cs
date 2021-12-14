@@ -42,5 +42,16 @@ namespace CateringLarissa2.Controllers
         {
             return View(await _context.Menu.ToListAsync());
         }
+
+        public async Task<IActionResult> Pesanan(String SearchString)
+        {
+            return View(await _context.Pesan.ToListAsync());
+        }
+        public async Task<IActionResult> Pesanan2(String SearchString)
+        {
+            return View(await _context.Pesan.ToListAsync());
+        }
+
+
     }
 }

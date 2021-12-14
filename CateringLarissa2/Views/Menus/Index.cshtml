@@ -49,9 +49,12 @@
                 <button class="btn btn-danger" type="submit"  ><i class="fas fa-trash-alt"></i></button>
             </a>
         }
-        <a asp-action="Details" asp-route-id="@item.id">
-            <button class="btn btn-success" type="submit"  ><i class="fas fa-shopping-basket"></i> Pesan</button>
-        </a>
+        @if (SignInManager.IsSignedIn(User))
+                {
+                    <a asp-action="Details" asp-route-id="@item.id">
+                        <button class="btn btn-success" type="submit"  ><i class="fas fa-shopping-basket"></i> Pesan</button>
+                    </a>
+            }
       </div>
   </div>
  }

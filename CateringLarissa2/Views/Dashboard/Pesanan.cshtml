@@ -1,0 +1,43 @@
+﻿@model IEnumerable<CateringLarissa2.Models.Pesan>
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+@{
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+    ViewData["Title"] = "Home Page";
+    var username = @Context.User.Identity.Name;
+}
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+  <h1 class="h2">Daftar Pesanan</h1>
+
+</div>
+
+
+@foreach (var item in Model) {
+    
+    <div class="card mb-3 bg-light">
+    <div class="card-body">
+      <h6 class="card-title">Nama Menu :@Html.DisplayFor(modelItem => item.menuname)</h6>
+      <h6 class="card-title">Harga :@Html.DisplayFor(modelItem => item.price)</h6>
+      <h6 class="card-title">Dipesan Oleh : @Html.DisplayFor(modelItem => item.username) </h6>
+      <h6 class="card-title">Nomor Hp : @Html.DisplayFor(modelItem => item.nomorhp) </h6>
+      <h6 class="card-title">Alamat Pengiriman : @Html.DisplayFor(modelItem => item.alamat) </h6>
+      <h6 class="card-title">Status : @if(item.status==1){<h6>Belum Diterima</h6>} @if(item.status==2){<h6>Sudah Diterima</h6>}</h6>
+     
+      @if(item.status==1){
+          <div class="btn-toolbar ">
+            <a asp-controller="Pesans" asp-action="Edit" asp-route-id="@item.id">
+                <button class="btn btn-success mx-1" type="submit" >Terima</button>
+            </a> 
+            
+               <a asp-controller="Pesans" asp-action="Delete" asp-route-id="@item.id">
+                    <button class="btn btn-danger mx-1" type="submit"  >Tolak</button>
+                </a>
+            </div>
+      }
+
+        
+    </div>
+  </div>
+  }
+  
